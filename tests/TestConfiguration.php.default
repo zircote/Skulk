@@ -1,0 +1,10 @@
+<?php
+/**
+ *
+ * Example Test Configuration Template
+ *
+ **/
+define('TESTS_ZEND_FRAMEWORK_INCLUDE_PATH','/usr/local/zend/share/ZendFramework/library');
+define('TESTS_GENERATE_REPORT', true);
+
+

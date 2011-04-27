@@ -1,0 +1,21 @@
+<phpunit bootstrap="./Bootstrap.php">
+    <testsuite name="Skulk Test Suite">
+        <directory>./library</directory>
+    </testsuite>
+    <testsuite name="Skulk Test Suite">
+        <directory>./library</directory>
+    </testsuite>
+  <php>
+    <const name="PHP_CODECOVERAGE_TESTSUITE" value="true"/>
+  </php>
+  <logging>
+    <log type="coverage-html" target=".build/coverage" title="Skulk Coverage"
+         charset="UTF-8" yui="true" highlight="true"
+         lowUpperBound="35" highLowerBound="70"/>
+  </logging>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../library/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
