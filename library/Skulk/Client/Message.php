@@ -5,6 +5,19 @@
  * The Request Envelope
  * @author zircote
  * @package Skulk_Client
+ * @license Copyright 2010 Robert Allen
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  */
 class Skulk_Client_Message {
@@ -83,6 +96,13 @@ class Skulk_Client_Message {
 	 */
 	protected $url;
 	
+	/**
+	 * 
+	 * The token returned from retrieve/token. Required.
+	 * @var string [40]
+	 */
+	protected $token;
+	
 	public function __construct($message = null){
         if ($message instanceof Zend_Config) {
             $message = $message->toArray();
@@ -101,7 +121,7 @@ class Skulk_Client_Message {
 	 * @return the $apikey
 	 */
 	public function getApikey() {
-		return $this->apikey;
+		return trim(implode(',', $this->apikey),',');
 	}
 
 	/**
@@ -155,6 +175,7 @@ class Skulk_Client_Message {
 		if(in_array($priority, $priorities)){
 			$this->priority = $priority;
 		} else {
+			require_once 'Skulk/Client/Exception.php';
 			throw new Skulk_Client_Exception('invalid priority level submitted', 501);
 		}
 		return $this;
@@ -174,8 +195,11 @@ class Skulk_Client_Message {
 	 * @param string $application
 	 * @return Skulk_Client_Message
 	 */
-	public function setApplication() {
-		$this->application = Skulk_Client::SKULK_NAME;
+	public function setApplication($application = null) {
+		if(null === $application){
+			$application = Skulk_Client::SKULK_NAME;
+		}
+		$this->application = $application;
 		return $this;
 	}
 
@@ -227,6 +251,7 @@ class Skulk_Client_Message {
 		if(Zend_Uri_Http::check($url)){
 			$this->url = $url;
 		} else {
+			require_once 'Skulk/Client/Exception.php';
 			throw new Skulk_Client_Exception("[{$url}] is invalid", 501);
 		}
 		return $this;
@@ -235,8 +260,26 @@ class Skulk_Client_Message {
 	public function toArray(){
 		$return = array();
 		foreach (array('url', 'priority', 'providerkey', 'apikey', 'application', 'event', 'description') as $prop) {
-			$return[$prop] = $this->$prop;
+			$m = 'get'.ucfirst($prop);
+			$return[$prop] = $this->$m();
 		};
 		return $return;
 	}
+	/**
+	 * @return string
+	 */
+	public function getToken() {
+		return $this->token;
+	}
+
+	/**
+	 * @param string $token
+	 * @return Skulk_Client_Message
+	 */
+	public function setToken($token) {
+		$this->token = $token;
+		return $this;
+	}
+
+	
 }

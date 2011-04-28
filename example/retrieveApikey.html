@@ -1,0 +1,50 @@
+<code><span style="color: #000000"> <span
+	style="color: #0000BB">&lt;?php<br />
+<br />
+</span><span style="color: #007700">require_once&nbsp;</span><span
+	style="color: #DD0000">'Skulk/Client.php'</span><span
+	style="color: #007700">;<br />
+require_once&nbsp;</span><span style="color: #DD0000">'Skulk/Client/Message.php'</span><span
+	style="color: #007700">;<br />
+</span><span style="color: #0000BB">$msgOptions&nbsp;</span><span
+	style="color: #007700">=&nbsp;array&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'providerkey'&nbsp;</span><span
+	style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'PROVIDERKEY'</span><span
+	style="color: #007700">,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'token'&nbsp;</span><span
+	style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'TOKEN'<br />
+</span><span style="color: #007700">);<br />
+</span><span style="color: #0000BB">$message&nbsp;</span><span
+	style="color: #007700">=&nbsp;new&nbsp;</span><span
+	style="color: #0000BB">Skulk_Client_Message</span><span
+	style="color: #007700">(</span><span style="color: #0000BB">$msgOptions</span><span
+	style="color: #007700">);<br />
+</span><span style="color: #0000BB">$config&nbsp;</span><span
+	style="color: #007700">=&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'adapter'&nbsp;&nbsp;&nbsp;</span><span
+	style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Zend_Http_Client_Adapter_Curl'</span><span
+	style="color: #007700">,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'curloptions'&nbsp;</span><span
+	style="color: #007700">=&gt;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+	style="color: #0000BB">CURLOPT_FOLLOWLOCATION&nbsp;</span><span
+	style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span
+	style="color: #007700">,&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+	style="color: #0000BB">CURLOPT_SSL_VERIFYPEER&nbsp;</span><span
+	style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">false</span><span
+	style="color: #007700">),<br />
+);<br />
+</span><span style="color: #0000BB">$client&nbsp;</span><span
+	style="color: #007700">=&nbsp;new&nbsp;</span><span
+	style="color: #0000BB">Skulk_Client</span><span style="color: #007700">(</span><span
+	style="color: #0000BB">$config</span><span style="color: #007700">);<br />
+</span><span style="color: #0000BB">$response&nbsp;</span><span
+	style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$client</span><span
+	style="color: #007700">-&gt;</span><span style="color: #0000BB">retrieveApikey</span><span
+	style="color: #007700">(</span><span style="color: #0000BB">$message</span><span
+	style="color: #007700">);<br />
+</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span
+	style="color: #0000BB">$response</span><span style="color: #007700">-&gt;</span><span
+	style="color: #0000BB">getResult</span><span style="color: #007700">());</span>
+</span> </code>

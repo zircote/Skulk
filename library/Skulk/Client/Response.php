@@ -21,6 +21,7 @@ class Skulk_Client_Response {
 	 */
 	public function __construct($raw){
 		if(!function_exists('simplexml_load_string')){
+			require_once 'Skulk/Client/Exception.php';
 			throw new Skulk_Client_Exception('SimpleXML support is required');
 		}
 		if($this->container = @simplexml_load_string($raw)){
