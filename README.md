@@ -14,7 +14,8 @@ intr.v. skulked, skulk·ing, skulks
  
 ## Installation
 
- Install Zend Framework And Skulk:
+#### Install Zend Framework And Skulk:
+
  	pear channel-discover pear.zfcampus.org
 	pear install zfcampus/zf
 	pear channel-discover pear.zircote.com
