@@ -14,11 +14,12 @@ intr.v. skulked, skulk·ing, skulks
  
 ## Installation
 
- Install Zend Framework:
+ Install Zend Framework And Skulk:
  	pear channel-discover pear.zfcampus.org
 	pear install zfcampus/zf
+	pear channel-discover pear.zircote.com
+	pear install zircote/Skulk-Alpha
  
- Place `library/Skulk` in you include path 
  
 ## Methods
 
