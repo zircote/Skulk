@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Skulk/Client.php';
-require_once 'Skulk/Client/Message.php';
 $msgOptions = array (
 	'apikey' => 'APIKEY',
 	'event' => 'This is a test message',

@@ -41,7 +41,11 @@ class Skulk_Client_ResponseTest extends PHPUnit_Framework_TestCase {
 				<retrieve apikey="APIKEY" />
 			</prowl>',
 			'invalid' => '  <   23refsd2werf3rrhgrthjgsdfl',
-			'nonXML' => '<html><message>something</message></html>'
+			'nonXML' => '<html><message>something</message></html>',
+			'resetdate' => '<?xml version="1.0" encoding="UTF-8"?>
+			<prowl>
+				<success code="200" remaining="REMAINING" resetdate="1304032027" />
+			</prowl>',
 		);
 	
 	}
@@ -119,5 +123,13 @@ class Skulk_Client_ResponseTest extends PHPUnit_Framework_TestCase {
 		 $client = null;
 	}
 
+	public function testGetDateReset(){
+		 $client = new Skulk_Client_Response($this->sharedFixture['resetdate']);
+		 $array = $client->getResult();
+		 $this->assertTrue($client->getResetDate() instanceof Zend_Date);
+		 $this->assertEquals('Apr 28, 2011 6:07:07 PM',(string) $client->getResetDate());
+		 $client = null;
+	}
+	
 }
 

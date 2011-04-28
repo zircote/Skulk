@@ -1,7 +1,10 @@
 <?php
+
+require_once 'Zend/Http/Client.php';
+
 /**
  * 
- * The Request Envelope
+ * The Client/Executor for message requests
  * @author zircote
  * @package Skulk_Client
  * @license Copyright 2010 Robert Allen
@@ -19,7 +22,6 @@
  * limitations under the License.
  *
  */
-require_once 'Zend/Http/Client.php';
 class Skulk_Client extends Zend_Http_Client {
 	/**
 	 * 
@@ -75,6 +77,12 @@ class Skulk_Client extends Zend_Http_Client {
 		}
 	}
 	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param Skulk_Client_Message $message
+	 * @throws Skulk_Client_Exception
+	 */
 	public function verify(Skulk_Client_Message $message){
 		if(!$message->getApikey()){
 			require_once 'Skulk/Client/Exception.php';
@@ -90,6 +98,12 @@ class Skulk_Client extends Zend_Http_Client {
 		return new Skulk_Client_Response($response->getRawBody());
 	}
 	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param Skulk_Client_Message $message
+	 * @throws Skulk_Client_Exception
+	 */
 	public function retrieveToken(Skulk_Client_Message $message){
 		if(!$message->getProviderkey()){
 			require_once 'Skulk/Client/Exception.php';
@@ -102,6 +116,12 @@ class Skulk_Client extends Zend_Http_Client {
 		return new Skulk_Client_Response($response->getRawBody());
 	}
 	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param Skulk_Client_Message $message
+	 * @throws Skulk_Client_Exception
+	 */
 	public function retrieveApikey(Skulk_Client_Message $message){
 		if(!$message->getProviderkey() || !$message->getToken() ){
 			require_once 'Skulk/Client/Exception.php';

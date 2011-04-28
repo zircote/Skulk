@@ -103,6 +103,11 @@ class Skulk_Client_Message {
 	 */
 	protected $token;
 	
+	/**
+	 * 
+	 * expects message details as parameter or null
+	 * @param Zend_Config|array|null $message
+	 */
 	public function __construct($message = null){
         if ($message instanceof Zend_Config) {
             $message = $message->toArray();
@@ -118,7 +123,7 @@ class Skulk_Client_Message {
 	}
 	
 	/**
-	 * @return the $apikey
+	 * @return string $apikey
 	 */
 	public function getApikey() {
 		return trim(implode(',', $this->apikey),',');
@@ -138,7 +143,7 @@ class Skulk_Client_Message {
 	}
 
 	/**
-	 * @return the $providerkey
+	 * @return string $providerkey
 	 */
 	public function getProviderkey() {
 		return $this->providerkey;
@@ -154,7 +159,7 @@ class Skulk_Client_Message {
 	}
 
 	/**
-	 * @return the $priority
+	 * @return integer $priority
 	 */
 	public function getPriority() {
 		return $this->priority;
@@ -182,7 +187,7 @@ class Skulk_Client_Message {
 	}
 
 	/**
-	 * @return the $application
+	 * @return string $application
 	 */
 	public function getApplication() {
 		if(!$this->application){
@@ -204,7 +209,7 @@ class Skulk_Client_Message {
 	}
 
 	/**
-	 * @return the $description
+	 * @return string $description
 	 */
 	public function getDescription() {
 		return $this->description;
@@ -220,7 +225,7 @@ class Skulk_Client_Message {
 	}
 
 	/**
-	 * @return the $event
+	 * @return string $event
 	 */
 	public function getEvent() {
 		return $this->event;
@@ -236,7 +241,7 @@ class Skulk_Client_Message {
 	}
 
 	/**
-	 * @return the $url
+	 * @return string $url
 	 */
 	public function getUrl() {
 		return $this->url;
@@ -256,7 +261,11 @@ class Skulk_Client_Message {
 		}
 		return $this;
 	}
-
+	/**
+	 * 
+	 * returns the message contents as an array
+	 * @return array
+	 */
 	public function toArray(){
 		$return = array();
 		foreach (array('url', 'priority', 'providerkey', 'apikey', 'application', 'event', 'description') as $prop) {
@@ -271,7 +280,6 @@ class Skulk_Client_Message {
 	public function getToken() {
 		return $this->token;
 	}
-
 	/**
 	 * @param string $token
 	 * @return Skulk_Client_Message

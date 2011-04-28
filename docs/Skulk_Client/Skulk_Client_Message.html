@@ -55,41 +55,41 @@
 					<img src="../media/images/Constructor.png" alt=" "/>
 											<span class="method-result">Skulk_Client_Message</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">null</span>])
+											([<span class="var-type">Zend_Config|array|null</span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">null</span>])
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">string</span>
 										<a href="#getApikey" title="details" class="method-name">getApikey</a>
 										()
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">string</span>
 										<a href="#getApplication" title="details" class="method-name">getApplication</a>
 										()
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">string</span>
 										<a href="#getDescription" title="details" class="method-name">getDescription</a>
 										()
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">string</span>
 										<a href="#getEvent" title="details" class="method-name">getEvent</a>
 										()
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">integer</span>
 										<a href="#getPriority" title="details" class="method-name">getPriority</a>
 										()
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">string</span>
 										<a href="#getProviderkey" title="details" class="method-name">getProviderkey</a>
 										()
 									</div>
@@ -101,7 +101,7 @@
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">the</span>
+											<span class="method-result">string</span>
 										<a href="#getUrl" title="details" class="method-name">getUrl</a>
 										()
 									</div>
@@ -155,7 +155,7 @@
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">void</span>
+											<span class="method-result">array</span>
 										<a href="#toArray" title="details" class="method-name">toArray</a>
 										()
 									</div>
@@ -179,27 +179,23 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Constructor.png" />
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">105</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">110</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">The token returned from retrieve/token.</p>
-<p class="description"><p>Required.</p></p>
-	<ul class="tags">
-				<li><span class="field">var:</span> [40]</li>
-			</ul>
+<p class="short-description">expects message details as parameter or null</p>
 	
 	<div class="method-signature">
 		<span class="method-result">Skulk_Client_Message</span>
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">null</span>])
+					([<span class="var-type">Zend_Config|array|null</span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">null</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
+				<span class="var-type">Zend_Config|array|null</span>
 				<span class="var-name">$message</span>			</li>
 				</ul>
 		
@@ -210,7 +206,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getApikey</span> (line <span class="line-number">122</span>)
+		<span class="method-title">getApikey</span> (line <span class="line-number">127</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -219,7 +215,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getApikey
 		</span>
@@ -234,7 +230,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getApplication</span> (line <span class="line-number">186</span>)
+		<span class="method-title">getApplication</span> (line <span class="line-number">191</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -243,7 +239,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getApplication
 		</span>
@@ -258,7 +254,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getDescription</span> (line <span class="line-number">208</span>)
+		<span class="method-title">getDescription</span> (line <span class="line-number">213</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -267,7 +263,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getDescription
 		</span>
@@ -282,7 +278,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getEvent</span> (line <span class="line-number">224</span>)
+		<span class="method-title">getEvent</span> (line <span class="line-number">229</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -291,7 +287,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getEvent
 		</span>
@@ -306,7 +302,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getPriority</span> (line <span class="line-number">158</span>)
+		<span class="method-title">getPriority</span> (line <span class="line-number">163</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -315,7 +311,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">integer</span>
 		<span class="method-name">
 			getPriority
 		</span>
@@ -330,7 +326,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getProviderkey</span> (line <span class="line-number">142</span>)
+		<span class="method-title">getProviderkey</span> (line <span class="line-number">147</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -339,7 +335,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getProviderkey
 		</span>
@@ -354,7 +350,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getToken</span> (line <span class="line-number">270</span>)
+		<span class="method-title">getToken</span> (line <span class="line-number">279</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -375,7 +371,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getUrl</span> (line <span class="line-number">240</span>)
+		<span class="method-title">getUrl</span> (line <span class="line-number">245</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -384,7 +380,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">the</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getUrl
 		</span>
@@ -399,7 +395,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setApikey</span> (line <span class="line-number">130</span>)
+		<span class="method-title">setApikey</span> (line <span class="line-number">135</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -425,7 +421,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setApplication</span> (line <span class="line-number">197</span>)
+		<span class="method-title">setApplication</span> (line <span class="line-number">202</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -451,7 +447,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setDescription</span> (line <span class="line-number">216</span>)
+		<span class="method-title">setDescription</span> (line <span class="line-number">221</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -477,7 +473,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setEvent</span> (line <span class="line-number">232</span>)
+		<span class="method-title">setEvent</span> (line <span class="line-number">237</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -503,7 +499,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setPriority</span> (line <span class="line-number">166</span>)
+		<span class="method-title">setPriority</span> (line <span class="line-number">171</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -529,7 +525,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setProviderkey</span> (line <span class="line-number">150</span>)
+		<span class="method-title">setProviderkey</span> (line <span class="line-number">155</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -555,7 +551,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setToken</span> (line <span class="line-number">278</span>)
+		<span class="method-title">setToken</span> (line <span class="line-number">286</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -581,7 +577,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setUrl</span> (line <span class="line-number">248</span>)
+		<span class="method-title">setUrl</span> (line <span class="line-number">253</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -607,13 +603,14 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">toArray</span> (line <span class="line-number">259</span>)
+		<span class="method-title">toArray</span> (line <span class="line-number">268</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the message contents as an array</p>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		<span class="method-result">array</span>
 		<span class="method-name">
 			toArray
 		</span>
@@ -629,7 +626,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 27 Apr 2011 19:09:44 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+		Documentation generated on Thu, 28 Apr 2011 18:34:37 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
 	</p>
 	</div></body>
 </html>
