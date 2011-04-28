@@ -2,13 +2,13 @@
 
 ## About
 
-`
-skulk  (skulk)
-intr.v. skulked, skulk·ing, skulks
-1. To lie in hiding, as out of cowardice or bad conscience; lurk.
-2. To move about stealthily.
-3. To evade work or obligation; shirk.
-`
+
+ 	skulk  (skulk)
+ 	intr.v. skulked, skulk·ing, skulks
+ 	1. To lie in hiding, as out of cowardice or bad conscience; lurk.
+ 	2. To move about stealthily.
+ 	3. To evade work or obligation; shirk.
+
  A library for interacting with the prowl api.
  http://www.prowlapp.com/api.php
  
