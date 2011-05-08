@@ -3,18 +3,18 @@
 require_once 'Zend/Http/Client.php';
 
 /**
- * 
+ *
  * The Client/Executor for message requests
  * @author zircote
  * @package Skulk_Client
  * @license Copyright 2010 Robert Allen
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,25 +24,25 @@ require_once 'Zend/Http/Client.php';
  */
 class Skulk_Client extends Zend_Http_Client {
 	/**
-	 * 
+	 *
 	 * a default application name declaration
 	 * @var unknown_type
 	 */
 	const SKULK_NAME = 'Skulk/PHP';
-	
+
 	protected $endpoint = 'https://api.prowlapp.com/publicapi';
-	
+
 	/**
-	 * 
+	 *
 	 * Enter description here ...
 	 * @var Zend_Http_Client_Adapter_Interface
 	 */
 	protected $httpClient;
-	
-	public function __construct($config){
+
+	public function __construct($config = null){
 		parent::__construct($this->endpoint, $config);
 	}
-	
+
 	/**
 	 * <p>
 	 * This method sends a prowl message based on the message container parameters
@@ -51,7 +51,7 @@ class Skulk_Client extends Zend_Http_Client {
 	 * 	- application
 	 * 	- event
 	 * 	- description
-	 * 
+	 *
 	 * @param Skulk_Client_Message $message
 	 * @throws Skulk_Client_Exception
 	 */
@@ -76,9 +76,9 @@ class Skulk_Client extends Zend_Http_Client {
 			return new Skulk_Client_Response($response->getRawBody());
 		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * Enter description here ...
 	 * @param Skulk_Client_Message $message
 	 * @throws Skulk_Client_Exception
@@ -97,9 +97,9 @@ class Skulk_Client extends Zend_Http_Client {
 		require_once 'Skulk/Client/Response.php';
 		return new Skulk_Client_Response($response->getRawBody());
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * Enter description here ...
 	 * @param Skulk_Client_Message $message
 	 * @throws Skulk_Client_Exception
@@ -115,9 +115,9 @@ class Skulk_Client extends Zend_Http_Client {
 		require_once 'Skulk/Client/Response.php';
 		return new Skulk_Client_Response($response->getRawBody());
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * Enter description here ...
 	 * @param Skulk_Client_Message $message
 	 * @throws Skulk_Client_Exception
