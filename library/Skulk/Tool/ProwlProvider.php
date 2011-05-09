@@ -8,7 +8,6 @@ require_once ('Zend/Tool/Project/Provider/Abstract.php');
  * zf enable config.provider Skulk_Tool_ProwlProvider
  * zf create config
  * zf ? prowl
- * 28fbc035071f9e56592dab265d0650eae62d4b87
  */
 class Skulk_Tool_ProwlProvider extends Zend_Tool_Project_Provider_Abstract
     implements Zend_Tool_Framework_Provider_Pretendable{
@@ -29,16 +28,14 @@ class Skulk_Tool_ProwlProvider extends Zend_Tool_Project_Provider_Abstract
      * @param string $apikey
      */
     public function addkey($keyname, $apikey){
-        $skulk = $this->_registry->getConfig()->skulk;
-        if(!$skulk){
+        if(!$this->_registry->getConfig()->skulk){
             $this->_registry->getResponse()
                 ->appendContent('initializing default config for Skulk...', array('color' => 'cyan'))
                 ->appendContent('default priority [normal]...', array('color' => 'cyan'));
-            $skulk = array(
+            $this->_registry->getConfig ()->skulk = array(
                 'defaults' => array( 'priority' => 'normal'),
                 'keys' => array($keyname => $apikey)
             );
-            $this->_registry->getConfig ()->skulk = $skulk;
             $this->_registry->getConfig ()->save();
         } else {
             if($this->_registry->getConfig()->skulk->keys){
