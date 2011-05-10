@@ -7,4 +7,9 @@
 define('TESTS_ZEND_FRAMEWORK_INCLUDE_PATH','/usr/local/zend/share/ZendFramework/library');
 define('TESTS_GENERATE_REPORT', true);
 
+define('TEST_FIXTURES_PATH', realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures'));
 
+
+define ('TEST_API_KEY_S', '_APIKEY_');
+define ('TEST_USERID_S','_USERID_');
+define('TEST_CHARACTERID_S','_CHARACTERID_');
