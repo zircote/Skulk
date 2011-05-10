@@ -1,7 +1,7 @@
 <?php
 
 require_once ('Zend/Tool/Project/Provider/Abstract.php');
-
+require_once 'Zend/Tool/Framework/Provider/Pretendable.php';
 /**
  * @author zircote
  *
