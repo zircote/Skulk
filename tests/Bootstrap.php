@@ -21,15 +21,15 @@ $skulkRoot        = realpath(dirname(__DIR__));
 $skulkCoreLibrary = "$skulkRoot/library";
 $skulkCoreTests   = "$skulkRoot/tests";
 if(defined('TESTS_ZEND_FRAMEWORK_INCLUDE_PATH')){
-	$zend = TESTS_ZEND_FRAMEWORK_INCLUDE_PATH;
+    $zend = TESTS_ZEND_FRAMEWORK_INCLUDE_PATH;
 } else {
-	$zend = null;
+    $zend = null;
 }
 
 $path = array(
-	$skulkCoreLibrary,
-	$skulkCoreTests,
-	get_include_path(),
+    $skulkCoreLibrary,
+    $skulkCoreTests,
+    get_include_path(),
 );
 
 null === $zend ? array_push($path, $zend) : null;
@@ -40,9 +40,9 @@ include __DIR__ . '/_autoload.php';
 
 $testConfig = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
 if (is_readable($testConfig)) {
-	require_once $testConfig;
+    require_once $testConfig;
 } else {
-	require_once $testConfig.'.default';
+    require_once $testConfig.'.default';
 }
 
 unset($skulkRoot, $skulkCoreLibrary, $skulkCoreTests, $path, $zend);
