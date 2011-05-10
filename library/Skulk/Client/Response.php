@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  *
  * The response container
@@ -21,7 +19,8 @@
  * limitations under the License.
  *
  */
-class Skulk_Client_Response {
+class Skulk_Client_Response
+{
     /**
      *
      * Parsed XML Response
@@ -34,19 +33,20 @@ class Skulk_Client_Response {
      * @var array
      */
     public $result = array();
-
     /**
      *
      * @param string $raw
      */
-    public function __construct($raw){
-        if(!function_exists('simplexml_load_string')){
+    public function __construct ($raw)
+    {
+        if (! function_exists('simplexml_load_string')) {
             require_once 'Skulk/Client/Exception.php';
             throw new Skulk_Client_Exception('SimpleXML support is required');
         }
-        if($this->container = @simplexml_load_string($raw)){
+        if ($this->container = @simplexml_load_string($raw)) {
             foreach ($this->container->children() as $child) {
-                if(!in_array((string) $child->getName(), array('success','retrieve','error'))){
+                if (! in_array((string) $child->getName(),
+                array('success', 'retrieve', 'error'))) {
                     $this->result = false;
                     return;
                 }
@@ -62,32 +62,35 @@ class Skulk_Client_Response {
      * @param SimpleXMLElement $child
      * @return array
      */
-    public function extract(SimpleXMLElement $child){
+    public function extract (SimpleXMLElement $child)
+    {
         $index = (string) $child->getName();
         $this->result[$index] = array();
         foreach ($child->attributes() as $k => $v) {
-            $this->result[$index][$k] = (string)$v;
+            $this->result[$index][$k] = (string) $v;
         }
-        if($index === 'error'){
+        if ($index === 'error') {
             $this->result[$index]['message'] = (string) $child;
-            $this->result[$index]['detail'] = $this->getErrorDetail($this->result[$index]['code']);
+            $this->result[$index]['detail'] = $this->getErrorDetail(
+            $this->result[$index]['code']);
         }
     }
     /**
      * The final result
      * @return array
      */
-    public function getResult() {
+    public function getResult ()
+    {
         return $this->result;
     }
-
     /**
      *
      * returns quantity of remaining api calls for current time frame
      * @return integer
      */
-    public function getRemaining(){
-        if($this->result && array_key_exists('success', $this->getResult())){
+    public function getRemaining ()
+    {
+        if ($this->result && array_key_exists('success', $this->getResult())) {
             return $this->result['success']['remaining'];
         } else {
             return false;
@@ -99,8 +102,9 @@ class Skulk_Client_Response {
      * @param string|null $format
      * @return Zend_Date
      */
-    public function getResetDate($format = null){
-        if($this->result['success']['resetdate']){
+    public function getResetDate ($format = null)
+    {
+        if ($this->result['success']['resetdate']) {
             require_once 'Zend/Date.php';
             $date = new Zend_Date(null, Zend_Date::DATETIME_FULL);
             return $date->setTimestamp($this->result['success']['resetdate']);
@@ -112,15 +116,15 @@ class Skulk_Client_Response {
      * @param integer $errorCode
      * @return string
      */
-    public function getErrorDetail($errorCode){
-        $errors = array (
-            '400' =>  'Bad request, the parameters you provided did not validate, see ERRORMESSAGE.',
-            '401' =>  'Not authorized, the API key given is not valid, and does not correspond to a user.',
-            '406' =>  'Not acceptable, your IP address has exceeded the API limit.',
-            '409' =>  'Not approved, the user has yet to approve your retrieve request.',
-            '500' =>  'Internal server error, something failed to execute properly on the Prowl side.'
-        );
-        if(array_key_exists($errorCode, $errors)){
+    public function getErrorDetail ($errorCode)
+    {
+        $errors = array(
+        '400' => 'Bad request, the parameters you provided did not validate, see ERRORMESSAGE.',
+        '401' => 'Not authorized, the API key given is not valid, and does not correspond to a user.',
+        '406' => 'Not acceptable, your IP address has exceeded the API limit.',
+        '409' => 'Not approved, the user has yet to approve your retrieve request.',
+        '500' => 'Internal server error, something failed to execute properly on the Prowl side.');
+        if (array_key_exists($errorCode, $errors)) {
             return $errors[$errorCode];
         } else {
             return false;
