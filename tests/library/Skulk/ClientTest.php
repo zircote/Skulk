@@ -7,33 +7,42 @@ require_once 'PHPUnit/Framework/TestCase.php';
 /**
  * Skulk_Client test case.
  * @license Copyright 2010 Robert Allen
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @category   CategoryName
+ * @package    Skulk
+ * @author     Robert Allen <zircote@zircote.com>
+ * @copyright  2011 Robert Allen
+ * @license    Copyright 2010 Robert Allen
+ * @version    Release: @package_version@
+ * @link       http://pear.zircote.com/
+ *
  */
 class Skulk_ClientTest extends PHPUnit_Framework_TestCase {
-    
+
     /**
      * @var Skulk_Client
      */
     private $Zend_Http_Client_Adapter_Test;
-    
+
     /**
      * Prepares the environment before running a test.
      */
     protected function setUp() {
         require_once 'Zend/Http/Client/Adapter/Test.php';
         $this->Zend_Http_Client_Adapter_Test = new Zend_Http_Client_Adapter_Test();
-        
+
         $this->sharedFixture = array(
             'add' => "HTTP/1.1 200 OK"        . "\r\n" .
                         "Content-type: text/xml" . "\r\n" .
@@ -69,7 +78,7 @@ class Skulk_ClientTest extends PHPUnit_Framework_TestCase {
                           "\r\n" .'<html><message>something</message></html>'
         );
     }
-    
+
     /**
      * Cleans up the environment after running a test.
      */
@@ -77,7 +86,7 @@ class Skulk_ClientTest extends PHPUnit_Framework_TestCase {
         parent::tearDown ();
         $this->Zend_Http_Client_Adapter_Test = null;
     }
-    
+
     /**
      * Tests Skulk_Client->add()
      */
@@ -97,7 +106,7 @@ class Skulk_ClientTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse(!strstr($client->getLastRequest(), $pattern));
         $client = $message = null;
     }
-    
+
     /**
      * Tests Skulk_Client->verify()
      */
@@ -113,9 +122,9 @@ class Skulk_ClientTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('https://api.prowlapp.com:443/publicapi/verify', $client->getUri()->__toString());
         $pattern = 'apikey=APIKEY%2CAPIKEY2&providerkey=PROVIDERKEY';
         $this->assertFalse(!strstr($client->getLastRequest(), $pattern));
-    
+
     }
-    
+
     /**
      * Tests Skulk_Client->retrieveToken()
      */
@@ -131,12 +140,12 @@ class Skulk_ClientTest extends PHPUnit_Framework_TestCase {
         $pattern = 'providerkey=PROVIDERKEY';
         $this->assertFalse(!strstr($client->getLastRequest(), $pattern));
     }
-    
+
     /**
      * Tests Skulk_Client->retrieveApikey()
      */
     public function testRetrieveApikey() {
-        
+
         $this->Zend_Http_Client_Adapter_Test->setResponse($this->sharedFixture['add']);
         $options = array(
             'providerkey' => 'PROVIDERKEY',

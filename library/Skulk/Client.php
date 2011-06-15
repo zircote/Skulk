@@ -1,10 +1,8 @@
 <?php
 require_once 'Zend/Http/Client.php';
+
 /**
- *
- * The Client/Executor for message requests
- * @author zircote
- * @package Skulk_Client
+ * Skulk_Client test case.
  * @license Copyright 2010 Robert Allen
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +17,13 @@ require_once 'Zend/Http/Client.php';
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
+ * @category   CategoryName
+ * @package    Skulk
+ * @author     Robert Allen <zircote@zircote.com>
+ * @copyright  2011 Robert Allen
+ * @license    Copyright 2010 Robert Allen
+ * @version    Release: @package_version@
+ * @link       http://pear.zircote.com/
  */
 class Skulk_Client extends Zend_Http_Client
 {

@@ -1,0 +1,21 @@
+<phpunit bootstrap="../tests/Bootstrap.php">
+    <testsuite name="Skulk Test Suite">
+        <directory>../tests/library</directory>
+    </testsuite>
+    <testsuite name="Skulk Test Suite">
+        <directory>../tests/library</directory>
+    </testsuite>
+    <logging>
+        <log type="coverage-html" target="coverage" title="Rmhub"
+            charset="UTF-8" yui="true" highlight="true" lowUpperBound="35"
+            highLowerBound="70" />
+        <log type="coverage-clover" target="logs/clover.xml" />
+        <log type="junit" target="logs/junit.xml"
+            logIncompleteSkipped="false" />
+    </logging>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">library/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
