@@ -2,9 +2,6 @@
     <testsuite name="Skulk Test Suite">
         <directory>../tests/library</directory>
     </testsuite>
-    <testsuite name="Skulk Test Suite">
-        <directory>../tests/library</directory>
-    </testsuite>
     <logging>
         <log type="coverage-html" target="coverage" title="Rmhub"
             charset="UTF-8" yui="true" highlight="true" lowUpperBound="35"
@@ -15,7 +12,7 @@
     </logging>
     <filter>
         <whitelist>
-            <directory suffix=".php">library/</directory>
+            <directory suffix=".php">../library/</directory>
         </whitelist>
     </filter>
 </phpunit>
