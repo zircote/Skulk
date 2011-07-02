@@ -155,5 +155,19 @@ You are now ready to send messages:
     $ zf send-message prowl 'test message' 
     988 messages left until May 8, 2011 5:58:48 PM
 
+### Zend_Log Writer
 
+Setting up the Log Writer for Zend_Log
 
+    $prowl = array(
+        'apikey' => '072a7159e...e36ebe57',
+        'priority' => Skulk_Client_Message::PRIORITY_EMERGENCY,
+        'url' => 'http://www.zircote.com/admin/console',
+        'event' => 'Error logging via Prowl with Zend_Log',
+        'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
+    );
+    $prowlWriter = Skulk_Log_Writer_Prowl::factory($prowl);
+    $prowlWriter->addFilter(new Zend_Log_Filter_Priority(Zend_Log::EMERG));
+    $zendLog = new Zend_Log($this->Skulk_Log_Writer_Prowl);
+    $zendLog->info('This wont be sent');
+    $zendLog->emerg('this will be sent');
