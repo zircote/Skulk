@@ -3,7 +3,7 @@
 
 // Fix warinigs
 // pirum add target_dir Pirum-1.0.0.tgz
-// scp Skulk-0.1.3.tgz pear.zircote.com:/export/sites/pear.zircote.com/
+// scp Skulk-0.1.4.tgz pear.zircote.com:/export/sites/pear.zircote.com/
 error_reporting(error_reporting() ^ E_DEPRECATED);
 if (version_compare(PHP_VERSION, '5.3.2') >= 0) {
     error_reporting(error_reporting() ^ E_DEPRECATED);

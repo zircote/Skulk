@@ -49,9 +49,9 @@ class Skulk_Log_Writer_ProwlTest extends PHPUnit_Framework_TestCase
     {
         $this->Zend_Log->info('this is a info test');;
         $this->Zend_Log->crit('this is a crit test');;
-        $this->Zend_Log->emerg('this is a emerg test 1 ');;
-        $this->Zend_Log->emerg('this is a emerg test 2 ');;
-        $this->Zend_Log->emerg('this is a emerg test 3 ');;
+        $this->Zend_Log->emerg('this is a emerg test 1 ');
+        $this->Zend_Log->emerg('this is a emerg test 2 ');
+        $this->Zend_Log->emerg('this is a emerg test 3 ');
     }
 }
 
