@@ -26,7 +26,18 @@ require_once ('Zend/Log/Writer/Abstract.php');
  * @link       http://pear.zircote.com/
  *
  * <code>
- *
+ * $prowl = array(
+ *     'apikey' => '072a7159e...e36ebe57',
+ *     'priority' => Skulk_Client_Message::PRIORITY_EMERGENCY,
+ *     'url' => 'http://www.zircote.com/admin/console',
+ *     'event' => 'Error logging via Prowl with Zend_Log',
+ *     'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
+ * );
+ * $prowlWriter = Skulk_Log_Writer_Prowl::factory($prowl);
+ * $prowlWriter->addFilter(new Zend_Log_Filter_Priority(Zend_Log::EMERG));
+ * $zendLog = new Zend_Log($this->Skulk_Log_Writer_Prowl);
+ * $zendLog->info('This wont be sent');
+ * $zendLog->emerg('this will be sent');
  * </code>
  */
 class Skulk_Log_Writer_Prowl extends Zend_Log_Writer_Abstract
@@ -41,6 +52,11 @@ class Skulk_Log_Writer_Prowl extends Zend_Log_Writer_Abstract
      * @var Skulk_Client
      */
     protected $_client;
+    /**
+     *
+     * This is the outbound message container, we send all at once on shutdown
+     * @var array
+     */
     protected $_messages = array();
     /**
      *
