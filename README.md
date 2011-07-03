@@ -199,7 +199,7 @@ $prowl = array(
     'apikey' => '072a7159e...e36ebe57',
     'priority' => Skulk_Client_Message::PRIORITY_NORMAL,
     'url' => 'http://www.zircote.com/admin/console',
-    'event' => 'Error logging via Prowl with Zend_Log',
+    'event' => 'Error logging via Prowl with Zend_Mail',
 //    'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
 );
 $tansport = new Skulk_Mail_Transport_Prowl($prowl)
