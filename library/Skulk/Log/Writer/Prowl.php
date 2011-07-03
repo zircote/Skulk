@@ -131,4 +131,49 @@ class Skulk_Log_Writer_Prowl extends Zend_Log_Writer_Abstract
             $response->getResult();
         }
     }
+	/**
+     * @return Skulk_Client_Message
+     */
+    public function getSkulk ()
+    {
+        return $this->_skulk;
+    }
+
+	/**
+     * @return Skulk_Client
+     */
+    public function getClient ()
+    {
+        return $this->_client;
+    }
+
+	/**
+     * @param Skulk_Client_Message $_skulk
+     * @return Skulk_Log_Writer_Prowl
+     */
+    public function setSkulk ($_skulk)
+    {
+        $this->_skulk = $_skulk;
+        return $this;
+    }
+
+	/**
+     * @param Skulk_Client $_client
+     * @return Skulk_Log_Writer_Prowl
+     */
+    public function setClient ($_client)
+    {
+        $this->_client = $_client;
+        return $this;
+    }
+	/**
+     * @return the $_messages
+     */
+    public function getMessages ()
+    {
+        return $this->_messages;
+    }
+
+
+
 }
