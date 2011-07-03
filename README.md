@@ -16,7 +16,7 @@
 
 #### Install Zend Framework And Skulk:
 
-     pear channel-discover pear.zfcampus.org
+    pear channel-discover pear.zfcampus.org
     pear install zfcampus/zf
     pear channel-discover pear.zircote.com
     pear install zircote/Skulk-Alpha
@@ -30,100 +30,110 @@
  
 Setting parameters by methods.
 
-    <?php
-    require_once 'Skulk/Client.php';
-    require_once 'Skulk/Client/Message.php';
-    $message = new Skulk_Client_Message();
-    $message->setApikey('APIKEY')
-        ->setEvent('This is a test message')
-        ->setPriority(Skulk_Client_Message::PRIORITY_HIGH)
-        ->setDescription('just a random test message');
-    $client = new Skulk_Client();
-    $response = $client->add($message);
-    print_r($response->getResult());
-    Array
-    (
-        [success] => Array
-            (
-                [code] => 200
-                [remaining] => 994
-                [resetdate] => 1303947992
-            )
-    
-    )
-    echo (string) $response->getResetDate();
-    >>Apr 28, 2011 6:07:07 PM<<
-    echo $response->getRemaining();
-    >>994<<
+```php
+<?php
+require_once 'Skulk/Client.php';
+require_once 'Skulk/Client/Message.php';
+$message = new Skulk_Client_Message();
+$message->setApikey('APIKEY')
+    ->setEvent('This is a test message')
+    ->setPriority(Skulk_Client_Message::PRIORITY_HIGH)
+    ->setDescription('just a random test message');
+$client = new Skulk_Client();
+$response = $client->add($message);
+print_r($response->getResult());
+/*
+Array
+(
+    [success] => Array
+        (
+            [code] => 200
+            [remaining] => 994
+            [resetdate] => 1303947992
+        )
+
+)
+*/
+echo (string) $response->getResetDate();
+#>>Apr 28, 2011 6:07:07 PM<<
+echo $response->getRemaining();
+#>>994<<
+```
 
 define the message as an array as well as multiple apikey/destinations:
 
-    <?php
-    require_once 'Skulk/Client.php';
-    require_once 'Skulk/Client/Message.php';
-    $msgOptions = array (
-        'apikey' => array('APIKEY', 'APIKEY2')
-        'event' => 'This is a test message',
-        'priority' => Skulk_Client_Message::PRIORITY_HIGH,
-        'description' => 'just a random test message'
-    );
-    $message = new Skulk_Client_Message($msgOptions);
-    $client = new Skulk_Client();
-    $response = $client->add($message);
-    print_r($response->getResult());
-    Array
-    (
-        [success] => Array
-            (
-                [code] => 200
-                [remaining] => 994
-                [resetdate] => 1303947992
-            )
-    
-    )
+```php
+<?php
+require_once 'Skulk/Client.php';
+require_once 'Skulk/Client/Message.php';
+$msgOptions = array (
+    'apikey' => array('APIKEY', 'APIKEY2')
+    'event' => 'This is a test message',
+    'priority' => Skulk_Client_Message::PRIORITY_HIGH,
+    'description' => 'just a random test message'
+);
+$message = new Skulk_Client_Message($msgOptions);
+$client = new Skulk_Client();
+$response = $client->add($message);
+print_r($response->getResult());
+Array
+(
+    [success] => Array
+        (
+            [code] => 200
+            [remaining] => 994
+            [resetdate] => 1303947992
+        )
+
+)
+```
 
 ### verify
- 
-    <?php
-    
-    require_once 'Skulk/Client.php';
-    require_once 'Skulk/Client/Message.php';
-    $msgOptions = array (
-        'apikey' => 'APIKEY',
-        'providerkey' => 'PROVIDERKEY'
-    );
-    $message = new Skulk_Client_Message($msgOptions);
-    $client = new Skulk_Client();
-    $response = $client->verify($message);
-    print_r($response->getResult());
+```php
+<?php
+
+require_once 'Skulk/Client.php';
+require_once 'Skulk/Client/Message.php';
+$msgOptions = array (
+    'apikey' => 'APIKEY',
+    'providerkey' => 'PROVIDERKEY'
+);
+$message = new Skulk_Client_Message($msgOptions);
+$client = new Skulk_Client();
+$response = $client->verify($message);
+print_r($response->getResult());
+```
  
 ### retrieveToken
- 
-    <?php
-    require_once 'Skulk/Client.php';
-    require_once 'Skulk/Client/Message.php';
-    $msgOptions = array (
-        'providerkey' => 'PROVIDERKEY'
-    );
-    $message = new Skulk_Client_Message($msgOptions);
-    $client = new Skulk_Client($);
-    $response = $client->retrieveToken($message);
-    print_r($response->getResult());
+```php
+<?php
+require_once 'Skulk/Client.php';
+require_once 'Skulk/Client/Message.php';
+$msgOptions = array (
+    'providerkey' => 'PROVIDERKEY'
+);
+$message = new Skulk_Client_Message($msgOptions);
+$client = new Skulk_Client($);
+$response = $client->retrieveToken($message);
+print_r($response->getResult());
+```
 
 ### retrieveApikey
 
-    <?php
-    require_once 'Skulk/Client.php';
-    require_once 'Skulk/Client/Message.php';
-    $msgOptions = array (
-        'providerkey' => 'PROVIDERKEY',
-        'token' => 'TOKEN'
-    );
-    $message = new Skulk_Client_Message($msgOptions);
-    $client = new Skulk_Client();
-    $response = $client->retrieveApikey($message);
-    print_r($response->getResult());
-    
+```php
+<?php
+require_once 'Skulk/Client.php';
+require_once 'Skulk/Client/Message.php';
+$msgOptions = array (
+    'providerkey' => 'PROVIDERKEY',
+    'token' => 'TOKEN'
+);
+$message = new Skulk_Client_Message($msgOptions);
+$client = new Skulk_Client();
+$response = $client->retrieveApikey($message);
+print_r($response->getResult());
+```
+
 ### ZF Provider Config and User
 
 Setting up the Provider
@@ -159,15 +169,17 @@ You are now ready to send messages:
 
 Setting up the Log Writer for Zend_Log
 
-    $prowl = array(
-        'apikey' => '072a7159e...e36ebe57',
-        'priority' => Skulk_Client_Message::PRIORITY_EMERGENCY,
-        'url' => 'http://www.zircote.com/admin/console',
-        'event' => 'Error logging via Prowl with Zend_Log',
-        'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
-    );
-    $prowlWriter = Skulk_Log_Writer_Prowl::factory($prowl);
-    $prowlWriter->addFilter(new Zend_Log_Filter_Priority(Zend_Log::EMERG));
-    $zendLog = new Zend_Log($this->Skulk_Log_Writer_Prowl);
-    $zendLog->info('This wont be sent');
-    $zendLog->emerg('this will be sent');
+```php
+$prowl = array(
+    'apikey' => '072a7159e...e36ebe57',
+    'priority' => Skulk_Client_Message::PRIORITY_EMERGENCY,
+    'url' => 'http://www.zircote.com/admin/console',
+    'event' => 'Error logging via Prowl with Zend_Log',
+    'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
+);
+$prowlWriter = Skulk_Log_Writer_Prowl::factory($prowl);
+$prowlWriter->addFilter(new Zend_Log_Filter_Priority(Zend_Log::EMERG));
+$zendLog = new Zend_Log($this->Skulk_Log_Writer_Prowl);
+$zendLog->info('This wont be sent');
+$zendLog->emerg('this will be sent');
+```
