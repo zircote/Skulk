@@ -117,7 +117,7 @@ $msgOptions = array (
     'providerkey' => 'PROVIDERKEY'
 );
 $message = new Skulk_Client_Message($msgOptions);
-$client = new Skulk_Client($);
+$client = new Skulk_Client();
 $response = $client->retrieveToken($message);
 print_r($response->getResult());
 
