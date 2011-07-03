@@ -76,6 +76,7 @@ $message = new Skulk_Client_Message($msgOptions);
 $client = new Skulk_Client();
 $response = $client->add($message);
 print_r($response->getResult());
+/**
 Array
 (
     [success] => Array
@@ -86,6 +87,8 @@ Array
         )
 
 )
+*/
+
 ```
 
 ### verify
@@ -105,6 +108,7 @@ print_r($response->getResult());
 ```
  
 ### retrieveToken
+
 ```php
 <?php
 require_once 'Skulk/Client.php';
@@ -116,6 +120,7 @@ $message = new Skulk_Client_Message($msgOptions);
 $client = new Skulk_Client($);
 $response = $client->retrieveToken($message);
 print_r($response->getResult());
+
 ```
 
 ### retrieveApikey
@@ -170,6 +175,7 @@ You are now ready to send messages:
 Setting up the Log Writer for Zend_Log
 
 ```php
+<?php
 $prowl = array(
     'apikey' => '072a7159e...e36ebe57',
     'priority' => Skulk_Client_Message::PRIORITY_EMERGENCY,
