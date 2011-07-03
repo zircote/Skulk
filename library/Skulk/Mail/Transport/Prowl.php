@@ -37,10 +37,10 @@ require_once 'Zend/Mail/Transport/Abstract.php';
  *     'event' => 'Error logging via Prowl with Zend_Log',
  *     'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
  * );
- *
+ * $transport = new Skulk_Mail_Transport_Prowl($prowl)
  * $mail = new Zend_Mail();
  * $mail->setBodyText('this is a skulk test')
- *     ->send($this->Skulk_Mail_Transport_Prowl);
+ *     ->send($transport);
  * </code>
  */
 class Skulk_Mail_Transport_Prowl extends Zend_Mail_Transport_Abstract

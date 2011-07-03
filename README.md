@@ -202,9 +202,9 @@ $prowl = array(
     'event' => 'Error logging via Prowl with Zend_Log',
 //    'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
 );
-
+$tansport = new Skulk_Mail_Transport_Prowl($prowl)
 $mail = new Zend_Mail();
 $mail->setBodyText('this is a skulk test')
-    ->send($this->Skulk_Mail_Transport_Prowl);
+    ->send($transport);
     
 ```
