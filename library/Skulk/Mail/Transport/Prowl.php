@@ -39,8 +39,7 @@ require_once 'Zend/Mail/Transport/Abstract.php';
  * );
  *
  * $mail = new Zend_Mail();
- * $mail->addTo('zircote@gmail.comm')
- *     ->setBodyText('this is a skulk test')
+ * $mail->setBodyText('this is a skulk test')
  *     ->send($this->Skulk_Mail_Transport_Prowl);
  * </code>
  */

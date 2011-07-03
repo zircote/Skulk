@@ -18,7 +18,7 @@ class Skulk_Mail_Transport_ProwlTest extends PHPUnit_Framework_TestCase
         parent::setUp();
         // TODO Auto-generated Skulk_Mail_Transport_ProwlTest::setUp()
          $prowl = array(
-             'apikey' => '072a7159e9e8f......e7765cd11c229e36ebe57',
+             'apikey' => '072a7159e9e8fcaab15e7765cd11c229e36ebe57',
              'priority' => Skulk_Client_Message::PRIORITY_NORMAL,
              'url' => 'http://www.zircote.com/admin/mail',
              'event' => 'Error logging via ProwlTest with Zend_Mail',
@@ -42,10 +42,8 @@ class Skulk_Mail_Transport_ProwlTest extends PHPUnit_Framework_TestCase
      */
     public function testSetOptions ()
     {
-        $this->markTestSkipped();
         $mail = new Zend_Mail();
-        $mail->addTo('zircote@gmail.comm')
-            ->setBodyText('this is a skulk test')
+        $mail->setBodyText('this is a skulk test')
             ->send($this->Skulk_Mail_Transport_Prowl);
     }
     /**

@@ -189,3 +189,22 @@ $zendLog = new Zend_Log($this->Skulk_Log_Writer_Prowl);
 $zendLog->info('This wont be sent');
 $zendLog->emerg('this will be sent');
 ```
+### Zend_Mail_Transport
+
+Setting up the Mail Transport for Zend_Mail
+
+```php
+<?php
+$prowl = array(
+    'apikey' => '072a7159e...e36ebe57',
+    'priority' => Skulk_Client_Message::PRIORITY_NORMAL,
+    'url' => 'http://www.zircote.com/admin/console',
+    'event' => 'Error logging via Prowl with Zend_Log',
+//    'providerkey' => '072a7159e9e8f......e7765cd11c229e36ebe57'
+);
+
+$mail = new Zend_Mail();
+$mail->setBodyText('this is a skulk test')
+    ->send($this->Skulk_Mail_Transport_Prowl);
+    
+```
